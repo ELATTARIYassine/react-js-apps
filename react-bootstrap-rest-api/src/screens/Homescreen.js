@@ -25,9 +25,9 @@ function Homescreen() {
     const deleteHandler = async (id, evt) => {
         setdeleteDisabled(true);
         try {
-            const res = await services.deletePhoto(id);
+            await services.deletePhoto(id);
             const data = photos.filter(el => {
-                return el.id != id;
+                return el.id !== id;
             });
             setphotos(data);
             setdeleteDisabled(false);
