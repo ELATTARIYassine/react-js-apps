@@ -6,6 +6,6 @@ export default {
     getAllPhotos: () => axios.get(`${BASE_BACKEND_URL}/photos`),
     addPhoto: (photo) => axios.post(`${BASE_BACKEND_URL}/photos`, photo),
     editPhoto: (id) => axios.get(`${BASE_BACKEND_URL}/photos/${id}`),
-    updatePhoto: (photo) => axios.put(`${BASE_BACKEND_URL}/${photo.id}`, photo),
+    updatePhoto: (photo) => axios.put(`${BASE_BACKEND_URL}/photos/${photo.id}`, photo),
     deletePhoto: (photoID) => axios.delete(`${BASE_BACKEND_URL}/photos/${photoID}`)
 }

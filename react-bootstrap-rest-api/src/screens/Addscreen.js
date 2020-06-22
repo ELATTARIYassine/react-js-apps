@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Container, Col, Row, Form, Button} from 'react-bootstrap';
 import services from '../services/services';
 
-const Addscreen = () => {
+const Addscreen = (props) => {
 
     const [photoTitle, setphotoTitle] = useState('');
     const [photoURL, setphotoURL] = useState('');
@@ -17,7 +17,7 @@ const Addscreen = () => {
             }
             const photo = {photoTitle, photoURL};
             await services.addPhoto(photo);
-            alert('photo added successfuly');
+            props.history.push('/');
         } catch (error) {
             alert('photo added failed');
             console.log(error);
