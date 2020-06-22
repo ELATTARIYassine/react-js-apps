@@ -19,15 +19,9 @@ function App() {
         <div>
           <Navbar />
           <Switch>
-            <Route path="/add">
-              <AddScreen />
-            </Route>
-            <Route path="/edit/:id">
-              <EditScreen />
-            </Route>
-            <Route path="/">
-              <HomeScreen />
-            </Route>
+            <Route path="/add" component={AddScreen} />
+            <Route path="/edit/:id" component={EditScreen} />
+            <Route path="/" component={HomeScreen} />
           </Switch>
         </div>
       </Router>

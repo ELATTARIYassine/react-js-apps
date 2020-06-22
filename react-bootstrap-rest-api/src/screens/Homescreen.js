@@ -10,12 +10,12 @@ function Homescreen() {
 
     useEffect(() => {
         fetchPhotos();
-    });
+    }, []);
 
     const fetchPhotos = async () => {
         try {
             const res = await services.getAllPhotos();
-            setphotos(res.data.slice(0, 10));
+            setphotos(res.data.reverse().slice(0, 10));
         }catch (error){
             alert('Failed to fetch photos.');
         }
@@ -32,6 +32,7 @@ function Homescreen() {
                 {
                     photos.map(photoItem => (
                         <PhotoItem 
+                            id={photoItem.id}
                             key={photoItem.id}
                             title={photoItem.title}
                             thumbnailUrl={photoItem.thumbnailUrl} />
