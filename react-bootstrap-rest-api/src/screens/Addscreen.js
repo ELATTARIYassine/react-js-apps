@@ -3,7 +3,6 @@ import {Container, Col, Row, Form, Button} from 'react-bootstrap';
 import services from '../services/services';
 
 const Addscreen = (props) => {
-
     const [photoTitle, setphotoTitle] = useState('');
     const [photoURL, setphotoURL] = useState('');
 

@@ -10,6 +10,7 @@ function Homescreen() {
 
     useEffect(() => {
         fetchPhotos();
+        console.log('im ruinning everything');
     }, []);
 
     const fetchPhotos = async () => {
@@ -20,12 +21,27 @@ function Homescreen() {
             alert('Failed to fetch photos.');
         }
     }
+    const deleteHandler = async (id) => {
+        console.log(id);
+        try {
+            const res = await services.deletePhoto(id);
+            const data = photos.filter(el => {
+                return el.id != id;
+            });
+            setphotos(data);
+            alert('success');
+        } catch (error) {
+            
+        }
+    }
+
     if(!photos)
     {
         return (
            <Spinner />
         );
     }
+    
     return (
         <Container style={{padding: 10}}>
             <Row>
@@ -35,6 +51,7 @@ function Homescreen() {
                             id={photoItem.id}
                             key={photoItem.id}
                             title={photoItem.title}
+                            deleteItem={deleteHandler}
                             thumbnailUrl={photoItem.thumbnailUrl} />
                     ))
                 }
