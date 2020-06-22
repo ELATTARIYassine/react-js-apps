@@ -1,0 +1,22 @@
+.Header
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.HeaderMenu a
+{
+    display: inline-block;
+    margin: 0 10px;
+    color: #565673;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+}
+
+
+.HeaderMenu a:hover
+{
+    color: #5f9ea0;
+}
