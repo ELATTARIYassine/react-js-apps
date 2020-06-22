@@ -7,6 +7,7 @@ import Spinner from '../components/UI/spinner/Spinner';
 function Homescreen() {
 
     const [photos, setphotos] = useState(null);
+    const [deleteDisabled, setdeleteDisabled] = useState(false);
 
     useEffect(() => {
         fetchPhotos();
@@ -21,15 +22,15 @@ function Homescreen() {
             alert('Failed to fetch photos.');
         }
     }
-    const deleteHandler = async (id) => {
-        console.log(id);
+    const deleteHandler = async (id, evt) => {
+        setdeleteDisabled(true);
         try {
             const res = await services.deletePhoto(id);
             const data = photos.filter(el => {
                 return el.id != id;
             });
             setphotos(data);
-            alert('success');
+            setdeleteDisabled(false);
         } catch (error) {
             
         }
@@ -51,6 +52,7 @@ function Homescreen() {
                             id={photoItem.id}
                             key={photoItem.id}
                             title={photoItem.title}
+                            isDeleteDisabled={deleteDisabled}
                             deleteItem={deleteHandler}
                             thumbnailUrl={photoItem.thumbnailUrl} />
                     ))

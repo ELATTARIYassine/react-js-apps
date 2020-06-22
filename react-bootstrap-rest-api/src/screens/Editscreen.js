@@ -20,7 +20,6 @@ const Editscreen = (props) => {
             const photo = {id: photoID, photoTitle, photoURL};
             console.log(photo);
             await services.updatePhoto(photo);
-            alert('photo updated successfuly');
             props.history.push('/');
         } catch (error) {
             alert('photo update failed');

@@ -13,7 +13,7 @@ const photoitem = (props) => {
                 <Link to={`/edit/${props.id}`}>
                     <Button variant="primary">Edit</Button>
                 </Link> |&nbsp;
-                <Button onClick={() => props.deleteItem(props.id)} variant="danger">Delete</Button>
+                <Button disabled={props.isDeleteDisabled} onClick={(evt) => props.deleteItem(props.id, evt)} variant="danger">Delete</Button>
             </Card.Body>
         </Card>
        </Col>
