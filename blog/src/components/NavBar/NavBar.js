@@ -1,7 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import classes from './NavBar.module.css';
 
-const navbar = () => {
+const Navbar = () => {
+    const submitSearch = (event) => {
+        event.preventDefault();
+        alert('searched');
+    }
+
+    const [search, setsearch] = useState(false);
+
+    const openSearch = () => {
+        setsearch(true);
+    }
+
+    const searchClasse = search ? [classes.SearchInput, classes.SearchInputActive].join(' ') : classes.SearchInput;
+
     return ( 
         <div className={classes.NavBar}>
             <ul className={classes.NavBarMenu}>
@@ -13,11 +26,13 @@ const navbar = () => {
                 </li>
             </ul>
             <div className={classes.Search}>
-                <input type="text" placeholder="Search" />
-                <img src={require('../../assets/icons/search.png')} alt=""/>
+                <form onSubmit={submitSearch}>
+                    <input className={searchClasse} type="text" placeholder="Search" />
+                    <img className={classes.SearchIcon} onClick={openSearch} src={require('../../assets/icons/search.png')} alt=""/>
+                </form>
             </div>
         </div>
     );
 }
  
-export default navbar;
+export default Navbar;

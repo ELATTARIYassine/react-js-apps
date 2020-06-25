@@ -23,8 +23,24 @@
     color: #565673;
     padding: 0 10px;
 }
-.Search
+.Search form
 {
     display: flex;
     margin: 0 10px;
+}
+.SearchInput
+{   
+    width: 0;
+    transition: width 0.2s ease-in;
+    border: 0;
+}
+.SearchInputActive{
+    width: 150px;
+}
+.SearchInput:focus
+{   
+    outline: none;
+}
+.SearchIcon{
+    cursor: pointer;
 }

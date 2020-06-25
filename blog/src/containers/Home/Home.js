@@ -4,6 +4,7 @@ import style from './Home.css';
 const Home = () => {
     return (
         <div>
+            home
         </div>
     );
 }
